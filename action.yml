@@ -1,0 +1,12 @@
+name: LaTex2PDF
+description: Compiles a latex file to LaTex2PDF
+inputs:
+  tex-file:
+    description: "The LaTex file to compile"
+    required: true
+    default: main.tex
+runs:
+  using: docker
+  image: "docker://kelvinoluwadaolaiya/docker-latex"
+  args:
+    - ${{ inputs.tex-file }}
