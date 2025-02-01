@@ -12,7 +12,8 @@ RUN mv install-tl-2*/ install-latex
 WORKDIR ./install-latex
 RUN apt-get -y install perl-modules
 RUN perl install-tl --no-interaction
-RUN export PATH=/usr/local/texlive/${tlVersion}/bin/${platform}:${PATH}
+ENV PATH=/usr/local/texlive/${tlVersion}/bin/${platform}:$PATH
 WORKDIR /home/root
-COPY entrypoint.sh entrypoint.sh
-ENTRYPOINT [ "./entrypoint.sh" ]
+COPY entrypoint.sh entrypoint
+ENV PATH=/home/root:$PATH
+ENTRYPOINT [ "entrypoint" ]
