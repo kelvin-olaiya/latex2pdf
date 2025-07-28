@@ -7,6 +7,6 @@ inputs:
     default: main.tex
 runs:
   using: docker
-  image: "docker://kelvinoluwadaolaiya/docker-latex"
+  image: "docker://kelvindev15/docker-latex"
   args:
     - ${{ inputs.tex-file }}
